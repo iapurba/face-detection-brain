@@ -1,10 +1,16 @@
 import React from 'react';
+import './BoundingBox.css';
 
 
-const FaceDetection = () => {
+const FaceDetection = ({imageUrl, boundingBox}) => {
   return (
-    <div className='center'>
-      <img src={'https://samples.clarifai.com/face-det.jpg'} alt=''/>
+    <div className='center ma'>
+      <div className='absolute mt2'>
+        <img id='inputImage' src={imageUrl} alt='' width='500px' height='auto' />
+        <div className='boundingBox'
+        style={{top:boundingBox.topRow, right:boundingBox.rightCol,
+        bottom:boundingBox.bottomRow, left:boundingBox.leftCol}}></div>
+      </div>
     </div>
   );
 }
