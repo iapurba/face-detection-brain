@@ -55,7 +55,7 @@ class App extends Component {
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width, height);
+
     return {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
@@ -66,12 +66,10 @@ class App extends Component {
 
   displayFaceBox = (box) => {
     console.log(box);
-    this.setState({box: box});
   }
 
   onInputChange = (event) => {
     this.setState({input: event.target.value});
-    console.log(event.target.value);
   }
 
   onButtonSubmit = () => {
@@ -82,12 +80,13 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  render(){
+  render() {
+    const { imageUrl, box, route, isSignedIn } = this.state;
     return (
       <div className="App">
       <Particles className='particles' params={particlesOptions} />
-        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange} />
-        {this.state.route === 'home'
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        {route === 'home'
         ? <div>
             <Logo />
             <Rank />
@@ -95,9 +94,9 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
-            <FaceDetection boundingBox={this.state.box} imageUrl={this.state.imageUrl} />
+            <FaceDetection boundingBox={box} imageUrl={imageUrl} />
           </div>
-          : ( this.state.route === 'signin'
+          : ( route === 'signin'
               ? <SignIn onRouteChange={this.onRouteChange} />
               : <SignUp onRouteChange={this.onRouteChange} />
             )
