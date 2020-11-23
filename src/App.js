@@ -3,7 +3,6 @@ import './App.css';
 import Navigation from './components/navigation/Navigation';
 import SignIn from './components/signIn/SignIn';
 import SignUp from './components/signUp/SignUp';
-import Logo from './components/logo/Logo';
 import ImageLinkForm from './components/imageLinkForm/ImageLinkForm';
 import Rank from './components/rank/Rank';
 import FaceDetection from './components/faceDetection/FaceDetection';
