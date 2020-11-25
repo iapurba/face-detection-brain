@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Face Detection Brain
+This fun webapp helps to detect faces on picture. In order to.
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
