@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
 import Navigation from './components/navigation/Navigation';
 import SignIn from './components/signIn/SignIn';
 import SignUp from './components/signUp/SignUp';
 import ImageLinkForm from './components/imageLinkForm/ImageLinkForm';
 import Rank from './components/rank/Rank';
 import FaceDetection from './components/faceDetection/FaceDetection';
+import Modal from './components/modal/Modal';
+import Profile from './components/profile/Profile';
 import Particles from 'react-particles-js';
-import 'tachyons';
+
+import './App.css';
 
 
 const particlesOptions = {
@@ -28,12 +30,14 @@ const initialState = {
   boxes: [],
   route: 'signin',
   isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: '',
     name: '',
     email: '',
     entries: 0,
-    joined: ''
+    joined: '',
+    age: ''
   }
 }
 
@@ -49,7 +53,7 @@ class App extends Component {
       name: data.name,
       email: data.email,
       entries: data.entries,
-      joined: data.joined
+      joined: data.joined,
     }});
   }
 
@@ -88,7 +92,7 @@ class App extends Component {
 
   onImageSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://face-detection-brain-server.herokuapp.com/imageurl', {
+    fetch('http://localhost:3000/imageurl', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
@@ -98,7 +102,7 @@ class App extends Component {
     .then(response => response.json())
       .then((response) => {
         if (response) {
-          fetch('https://face-detection-brain-server.herokuapp.com/image', {
+          fetch('http://localhost:3000/image', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -115,12 +119,33 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  toggleModal = () => {
+    this.setState( prevState => ({
+      ...prevState,
+      isProfileOpen: !prevState.isProfileOpen
+    }));
+  }
+
   render() {
-    const { imageUrl, boxes, route, isSignedIn } = this.state;
+    const { imageUrl, boxes, route, isSignedIn, isProfileOpen, user } = this.state;
     return (
       <div className="App">
       <Particles className='particles' params={particlesOptions} />
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        <Navigation
+          isSignedIn={isSignedIn}
+          onRouteChange={this.onRouteChange}
+          toggleModal={this.toggleModal}
+        />
+        {isProfileOpen &&
+          <Modal>
+            <Profile
+              isProfileOpen={isProfileOpen}
+              toggleModal={this.toggleModal}
+              loadUser={this.loadUser}
+              user={user}
+            />
+          </Modal>
+        }
         {route === 'home'
         ? <div>
             <Rank name={this.state.user.name} entries={this.state.user.entries} />
