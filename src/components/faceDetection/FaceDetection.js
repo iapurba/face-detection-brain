@@ -11,6 +11,7 @@ const FaceDetection = ({imageUrl, boundingBoxes}) => {
           boundingBoxes.map(boundingBox => {
             return (
               <div className='boundingBox'
+                key={boundingBox.topRow}
                 style={{top:boundingBox.topRow, right:boundingBox.rightCol,
                 bottom:boundingBox.bottomRow, left:boundingBox.leftCol}}>
               </div>
