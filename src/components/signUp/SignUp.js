@@ -24,7 +24,7 @@ class SignUp extends React.Component {
   }
 
   onSubmitSignUp = () => {
-    fetch('https://face-detection-brain-server.herokuapp.com/signup', {
+    fetch('http://localhost:3000/signup', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
@@ -87,6 +87,9 @@ class SignUp extends React.Component {
                 type="submit"
                 value="Sign up"
               />
+            </div>
+            <div className="lh-copy mt3">
+              <p onClick={() => this.props.onRouteChange('signin')} className="f6 link dim black db pointer">Sign in</p>
             </div>
           </div>
         </main>
