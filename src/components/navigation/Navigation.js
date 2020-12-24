@@ -6,7 +6,7 @@ import ProfileIcon from '../profile/ProfileIcon';
 const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
   if (isSignedIn) {
     return (
-      <nav className='pa2 mh3 v-mid' style={{display:'flex', justifyContent:'space-between'}}>
+      <nav className='ma2 pa2' style={{display:'flex', justifyContent:'space-between'}}>
         <Logo />
         <ProfileIcon toggleModal={toggleModal} onRouteChange={onRouteChange}/>
       </nav>
