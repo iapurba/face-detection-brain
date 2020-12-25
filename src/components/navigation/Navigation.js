@@ -2,11 +2,13 @@ import React from 'react';
 import Logo from '../logo/Logo';
 import ProfileIcon from '../profile/ProfileIcon';
 
+import './Navigation.css';
+
 
 const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
   if (isSignedIn) {
     return (
-      <nav className='ma2 pa2' style={{display:'flex', justifyContent:'space-between'}}>
+      <nav className='navbar'>
         <Logo />
         <ProfileIcon toggleModal={toggleModal} onRouteChange={onRouteChange}/>
       </nav>
@@ -14,11 +16,9 @@ const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
   }
   else {
     return (
-      <div>
-        <nav style={{display:'flex', justifyContent:'space-between'}}>
-          <Logo />
-        </nav>
-      </div>
+      <nav className='navbar'>
+        <Logo />
+      </nav>
     )
   }
 }
