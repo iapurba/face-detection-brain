@@ -45,7 +45,7 @@ class Profile extends React.Component {
     const { name, age } = this.state;
     return (
       <div className='profile-modal'>
-      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center bg-white">
+      <article className="modal-container br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
       <main className="pa4 black-80">
       <img
       src="https://cdn.faceshapeapp.com/q/K9b6nbE_zar8qAX1.jpg?w=640"

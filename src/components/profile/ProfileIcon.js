@@ -18,7 +18,7 @@ class ProfileIcon extends Component {
 
   render() {
     return (
-      <div className='pa2 tc'>
+      <div className='tc'>
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle
             tag="span"
@@ -27,10 +27,11 @@ class ProfileIcon extends Component {
           >
             <img
               src="https://cdn.faceshapeapp.com/q/K9b6nbE_zar8qAX1.jpg?w=640"
-              className="br-100 h3 w3 dib" alt="avatar"
+              alt="avatar"
+              style={{height:'50px', width:'50px', border:'3px solid #DEF2FE', borderRadius:'50px',     cursor:'pointer'}}
             />
           </DropdownToggle>
-          <DropdownMenu className="mr5 mt4 pa2 shadow-5">
+          <DropdownMenu className="mr6 mt4 pa2 shadow-5">
             <DropdownItem onClick={this.props.toggleModal}>View Profile</DropdownItem>
             <DropdownItem onClick={() => this.props.onRouteChange('signout')}>Sign Out</DropdownItem>
           </DropdownMenu>
