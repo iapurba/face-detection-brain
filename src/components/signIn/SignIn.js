@@ -57,15 +57,17 @@ class SignIn extends Component {
   render() {
     const { onRouteChange } = this.props;
     return (
-      <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
+      <article
+        className="br3 ba b--black-10 mv2 w-100 mw6 shadow-5 center"
+        style={{color:'#17252A', background:'#DEF2F1'}}>
+        <main className="pa4">
           <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f2 fw6 ph0 mh0">Sign In</legend>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                 <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className="pa2 input-reset ba bg-transparent w-100"
                   type="email"
                   name="email-address"
                   id="email-address"
@@ -75,7 +77,7 @@ class SignIn extends Component {
               <div className="mv3">
                 <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                 <input
-                  className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className="b pa2 input-reset ba bg-transparent w-100"
                   type="password"
                   name="password"
                   id="password"
@@ -92,7 +94,7 @@ class SignIn extends Component {
               />
             </div>
             <div className="lh-copy mt3">
-              <p onClick={() => onRouteChange('signup')} className="f6 link dim black db pointer">Sign up</p>
+              <p onClick={() => onRouteChange('signup')} className="f6 link dim db pointer">Sign up</p>
             </div>
           </div>
         </main>
