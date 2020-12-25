@@ -1,21 +1,6 @@
-/* .logo {
-  position: fixed;
-  top: 10px;
-  left: 0;
-  z-index: 1;
-} */
-
-.Tilt {
-  /* background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);  */
-}
 
 .logo {
-  height: 80px;
-  animation: complete 5s infinite;
-}
-@keyframes complete {
-  50% {
-    transform: scale(0.7);
-  }
-
+  height: 90px;
+  width: auto;
+  border-radius: 10px;
 }
